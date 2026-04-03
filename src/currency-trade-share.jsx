@@ -25,6 +25,7 @@ const trendData = [
   { year: 2022, USD: 59, GBP: 5.5, JPY: 3.0, AUD: 1.0, CNY: 3.0, EUR: 22, Other: 6.5 },
   { year: 2023, USD: 60, GBP: 5.5, JPY: 3.0, AUD: 1.0, CNY: 3.0, EUR: 22, Other: 5.5 },
   { year: 2025, USD: 59, GBP: 5.5, JPY: 3.0, AUD: 1.0, CNY: 3.5, EUR: 22, Other: 6 },
+  { year: 2026, USD: 59, GBP: 5.5, JPY: 3.0, AUD: 1.0, CNY: 2.7, EUR: 22, Other: 6.8 },
 ];
 
 const summaryRows = [
@@ -38,6 +39,7 @@ const summaryRows = [
   { year: "2020", USD: "60.0%", EUR: "22.0%", JPY: "3.0%", GBP: "5.5%", AUD: "1.0%", CNY: "2.5%", Other: "6.0%" },
   { year: "2023", USD: "60.0%", EUR: "22.0%", JPY: "3.0%", GBP: "5.5%", AUD: "1.0%", CNY: "3.0%", Other: "5.5%" },
   { year: "2025", USD: "59.0%", EUR: "22.0%", JPY: "3.0%", GBP: "5.5%", AUD: "1.0%", CNY: "3.5%", Other: "6.0%" },
+  { year: "2026", USD: "59.0%", EUR: "22.0%", JPY: "3.0%", GBP: "5.5%", AUD: "1.0%", CNY: "2.7%", Other: "6.8%" },
 ];
 
 const baseLookup = { USD: 1960, EUR: 1996, GBP: 1960, JPY: 1970, AUD: 1960, CNY: 2000, Other: 1960 };
@@ -68,7 +70,7 @@ const cumulativeData = trendData.map((row) => {
 const colors = { USD: "#2563eb", EUR: "#dc2626", GBP: "#16a34a", JPY: "#d97706", AUD: "#8b5cf6", CNY: "#ec4899", Other: "#71717a" };
 const currencyLabels = { USD: "US Dollar", EUR: "Euro", GBP: "British Pound", JPY: "Japanese Yen", AUD: "Australian Dollar", CNY: "Chinese Yuan", Other: "Other" };
 const allCurrencies = ["USD", "EUR", "GBP", "JPY", "AUD", "CNY"];
-const tickYears = [1960, 1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025];
+const tickYears = [1960, 1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025, 2026];
 
 const ShareTooltip = ({ active, payload, label }) => {
   if (!active || !payload) return null;
@@ -157,7 +159,7 @@ export default function CurrencyTradeShare() {
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
       <div style={{ maxWidth: 860, margin: "0 auto" }}>
         <div style={{ marginBottom: 32 }}>
-          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#6b7280", marginBottom: 6 }}>SWIFT · CIPS · Global Trade · 1960–2025</div>
+          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#6b7280", marginBottom: 6 }}>SWIFT · CIPS · Global Trade · 1960–2026</div>
           <h1 style={{ fontSize: 26, fontWeight: 700, margin: 0, color: "#f4f4f5", lineHeight: 1.2 }}>Currency Share in International Trade</h1>
           <p style={{ fontSize: 13, color: "#71717a", marginTop: 6, lineHeight: 1.6 }}>
             Estimated share of global trade settled/financed/invoiced in each currency across SWIFT, CIPS, and other networks. Excludes intra-eurozone flows. Euro line begins 1996 — prior to that, European legacy currencies are in "Other".
@@ -169,7 +171,7 @@ export default function CurrencyTradeShare() {
         <div style={{ background: "#18181b", borderRadius: 12, border: "1px solid #27272a", padding: "24px 12px 16px", marginBottom: 28 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", paddingLeft: 8, paddingRight: 8, marginBottom: 16 }}>
             <div>
-              <div style={{ fontSize: 14, fontWeight: 600, color: "#d4d4d8" }}>{hideUSA ? "Excluding US Dollar" : "All Major Currencies — 1960 to 2025"}</div>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "#d4d4d8" }}>{hideUSA ? "Excluding US Dollar" : "All Major Currencies — 1960 to 2026"}</div>
               <div style={{ fontSize: 12, color: "#52525b", marginTop: 2 }}>% of global trade by currency (excl. intra-eurozone)</div>
             </div>
             <button onClick={() => setHideUSA(!hideUSA)} style={{ background: "#27272a", border: "1px solid #3f3f46", borderRadius: 6, color: "#a1a1aa", fontSize: 11, padding: "5px 10px", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontWeight: 500, whiteSpace: "nowrap", flexShrink: 0 }}>
@@ -179,7 +181,7 @@ export default function CurrencyTradeShare() {
           <ResponsiveContainer width="100%" height={360}>
             <LineChart data={trendData} margin={{ top: 5, right: 16, left: 0, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
-              <XAxis dataKey="year" type="number" domain={[1960, 2026]} ticks={tickYears} tick={{ fill: "#71717a", fontSize: 11 }} axisLine={{ stroke: "#27272a" }} tickLine={false} angle={-45} textAnchor="end" height={40} />
+              <XAxis dataKey="year" type="number" domain={[1960, 2027]} ticks={tickYears} tick={{ fill: "#71717a", fontSize: 11 }} axisLine={{ stroke: "#27272a" }} tickLine={false} angle={-45} textAnchor="end" height={40} />
               <YAxis tick={{ fill: "#71717a", fontSize: 11, fontFamily: "'JetBrains Mono', monospace" }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v}%`} domain={hideUSA ? [0, 25] : [0, 85]} />
               <Tooltip content={<ShareTooltip />} />
               <Legend content={renderLegend} />
@@ -210,7 +212,7 @@ export default function CurrencyTradeShare() {
           <ResponsiveContainer width="100%" height={360}>
             <LineChart data={indexedData} margin={{ top: 5, right: 16, left: 0, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
-              <XAxis dataKey="year" type="number" domain={[1960, 2026]} ticks={tickYears} tick={{ fill: "#71717a", fontSize: 11 }} axisLine={{ stroke: "#27272a" }} tickLine={false} angle={-45} textAnchor="end" height={40} />
+              <XAxis dataKey="year" type="number" domain={[1960, 2027]} ticks={tickYears} tick={{ fill: "#71717a", fontSize: 11 }} axisLine={{ stroke: "#27272a" }} tickLine={false} angle={-45} textAnchor="end" height={40} />
               <YAxis tick={{ fill: "#71717a", fontSize: 11, fontFamily: "'JetBrains Mono', monospace" }} axisLine={false} tickLine={false} />
               <Tooltip content={<IndexedTooltip />} />
               <Legend content={renderLegend} />
@@ -234,7 +236,7 @@ export default function CurrencyTradeShare() {
           <ResponsiveContainer width="100%" height={360}>
             <AreaChart data={cumulativeData} margin={{ top: 5, right: 16, left: 0, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
-              <XAxis dataKey="year" type="number" domain={[1960, 2026]} ticks={tickYears} tick={{ fill: "#71717a", fontSize: 11 }} axisLine={{ stroke: "#27272a" }} tickLine={false} angle={-45} textAnchor="end" height={40} />
+              <XAxis dataKey="year" type="number" domain={[1960, 2027]} ticks={tickYears} tick={{ fill: "#71717a", fontSize: 11 }} axisLine={{ stroke: "#27272a" }} tickLine={false} angle={-45} textAnchor="end" height={40} />
               <YAxis tick={{ fill: "#71717a", fontSize: 11, fontFamily: "'JetBrains Mono', monospace" }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v > 0 ? "+" : ""}${v}`} />
               <Tooltip content={<CumulativeTooltip />} />
               <Legend content={renderLegend} />
@@ -245,7 +247,7 @@ export default function CurrencyTradeShare() {
             </AreaChart>
           </ResponsiveContainer>
         </div>
-        <div style={{ fontSize: 11, color: "#52525b", lineHeight: 1.5, marginBottom: 28 }}>The USD has shed –21pp since 1960. The EUR gained +6pp since 1996. The CNY has gained +3.5pp since 2000.</div>
+        <div style={{ fontSize: 11, color: "#52525b", lineHeight: 1.5, marginBottom: 28 }}>The USD has shed –21pp since 1960. The EUR gained +6pp since 1996. The CNY has gained +2.7pp since 2000.</div>
 
         {/* Data Table */}
         <SectionLabel title="Data Table" />
@@ -279,7 +281,7 @@ export default function CurrencyTradeShare() {
 
         <div style={{ marginTop: 20, fontSize: 11, color: "#3f3f46", lineHeight: 1.7, textAlign: "center" }}>
           Sources: CBO (2023); US Federal Reserve (2021); BIS (2022); ECB International Role of the Euro (June 2025);
-          Boz, Gopinath, Mehl et al. (IMF/ECB, 2025); Eichengreen, Mehl & Chiţu (2018); Schenk (2010); SWIFT RMB Tracker; CIPS / Atlantic Council.
+          Boz, Gopinath, Mehl et al. (IMF/ECB, 2025); Eichengreen, Mehl & Chiţu (2018); Schenk (2010); SWIFT RMB Tracker (Mar 2026); CIPS / Atlantic Council.
           <br />
           Pre-1996 "Other" includes DM, FF, NLG, and other European legacy currencies. CNY incl. CIPS (est. 2015). Pre-1990 figures are scholarly estimates.
         </div>
