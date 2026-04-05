@@ -47,3 +47,19 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "Currency Trade Share updated — ${{ github.event.head_commit.timestamp }}"
+          to: apamekhail@gmail.com
+          from: ${{ secrets.GMAIL_USERNAME }}
+          body: |
+            ${{ github.event.head_commit.message }}
+
+            View live: https://mekan841.github.io/currency-trade-share
