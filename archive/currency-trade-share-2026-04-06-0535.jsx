@@ -25,7 +25,6 @@ const trendData = [
   { year: 2022, USD: 59, GBP: 5.5, JPY: 3.0, AUD: 1.0, CNY: 3.0, EUR: 22, Other: 6.5 },
   { year: 2023, USD: 60, GBP: 5.5, JPY: 3.0, AUD: 1.0, CNY: 3.0, EUR: 22, Other: 5.5 },
   { year: 2025, USD: 59, GBP: 5.5, JPY: 3.0, AUD: 1.0, CNY: 3.5, EUR: 22, Other: 6 },
-  { year: 2026, USD: 59, GBP: 5.5, JPY: 3.0, AUD: 1.0, CNY: 2.8, EUR: 22, Other: 6.7 },
 ];
 
 const summaryRows = [
@@ -39,7 +38,6 @@ const summaryRows = [
   { year: "2020", USD: "60.0%", EUR: "22.0%", JPY: "3.0%", GBP: "5.5%", AUD: "1.0%", CNY: "2.5%", Other: "6.0%" },
   { year: "2023", USD: "60.0%", EUR: "22.0%", JPY: "3.0%", GBP: "5.5%", AUD: "1.0%", CNY: "3.0%", Other: "5.5%" },
   { year: "2025", USD: "59.0%", EUR: "22.0%", JPY: "3.0%", GBP: "5.5%", AUD: "1.0%", CNY: "3.5%", Other: "6.0%" },
-  { year: "2026", USD: "59.0%", EUR: "22.0%", JPY: "3.0%", GBP: "5.5%", AUD: "1.0%", CNY: "2.8%", Other: "6.7%" },
 ];
 
 const baseLookup = { USD: 1960, EUR: 1996, GBP: 1960, JPY: 1970, AUD: 1960, CNY: 2000, Other: 1960 };
@@ -281,10 +279,9 @@ export default function CurrencyTradeShare() {
 
         <div style={{ marginTop: 20, fontSize: 11, color: "#3f3f46", lineHeight: 1.7, textAlign: "center" }}>
           Sources: CBO (2023); US Federal Reserve (2021); BIS (2022); ECB International Role of the Euro (June 2025);
-          Boz, Gopinath, Mehl et al. (IMF/ECB, 2025); Eichengreen, Mehl & Chiţu (2018); Schenk (2010); SWIFT Global Currency Tracker (Feb 2026); CIPS / Atlantic Council.
+          Boz, Gopinath, Mehl et al. (IMF/ECB, 2025); Eichengreen, Mehl & Chiţu (2018); Schenk (2010); SWIFT RMB Tracker; CIPS / Atlantic Council.
           <br />
-          Pre-1996 "Other" includes DM, FF, NLG, and other European legacy currencies. CNY incl. CIPS-only est. (80% SWIFT overlap per Banque de France 2022). Pre-1990 figures are scholarly estimates.
-          2026 CNY: SWIFT 3-month avg 2.24% excl. intra-eurozone (Dec 2025–Feb 2026) + ~0.56pp CIPS-only = ~2.8% composite.
+          Pre-1996 "Other" includes DM, FF, NLG, and other European legacy currencies. CNY incl. CIPS (est. 2015). Pre-1990 figures are scholarly estimates.
         </div>
       </div>
     </div>
