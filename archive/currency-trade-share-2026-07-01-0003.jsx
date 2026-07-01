@@ -280,7 +280,7 @@ export default function CurrencyTradeShare() {
         </div>
 
         <div style={{ marginTop: 20, fontSize: 11, color: "#3f3f46", lineHeight: 1.7, textAlign: "center" }}>
-          Sources: CBO (2023); US Federal Reserve (2025); BIS Triennial Survey (2025); ECB International Role of the Euro (June 2026);
+          Sources: CBO (2023); US Federal Reserve (2021); BIS (2022); ECB International Role of the Euro (June 2026);
           Boz, Gopinath, Mehl et al. (IMF/ECB, 2025); Eichengreen, Mehl & Chiţu (2018); Schenk (2010); SWIFT Global Currency Tracker (2026); CIPS / Atlantic Council.
           <br />
           Pre-1996 "Other" includes DM, FF, NLG, and other European legacy currencies. CNY incl. CIPS (est. 2015). Pre-1990 figures are scholarly estimates.
